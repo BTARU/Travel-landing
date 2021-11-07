@@ -985,6 +985,12 @@ body {
   }
 }
 
+.footer__form_input:focus {
+  border: 1px solid black;
+  -webkit-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.35);
+}
+
 .footer__form_button {
   min-height: 44px;
   padding: 0 32px;
