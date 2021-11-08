@@ -784,6 +784,9 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -885,8 +888,8 @@ body {
 
 @media (max-width: 1152px) and (max-width: 1140px) {
   .footer__nav_list {
-    -webkit-column-gap: calc(10px + 40 * ((100vw - 320px) / 820));
-            column-gap: calc(10px + 40 * ((100vw - 320px) / 820));
+    -webkit-column-gap: calc(30px + 20 * ((100vw - 320px) / 820));
+            column-gap: calc(30px + 20 * ((100vw - 320px) / 820));
   }
 }
 
