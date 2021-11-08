@@ -490,6 +490,7 @@ body {
 		}
 		@media (max-width:550px) {
 			flex-direction: column;
+			align-items: center;
 		}
 	}
 
@@ -555,7 +556,7 @@ body {
 			column-gap: 120px;
 			row-gap: 20px;
 			@media (max-width:$md1) {
-				@include adaptive-value("column-gap",50 ,10 ,1 );
+				@include adaptive-value("column-gap",50 ,30 ,1 );
 			}
 		}
 
