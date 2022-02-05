@@ -9,14 +9,14 @@ const swiper = new Swiper(".offers__slider", {
     },
 
     pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
+        el: ".swiper-pagination",
+        type: "bullets",
         clickable: true,
-      },
-    
+    },
+
     keyboard: {
         enabled: true,
-    },  
+    },
 
     grabCursor: true,
 
@@ -25,7 +25,6 @@ const swiper = new Swiper(".offers__slider", {
     slidesPerView: 3,
 
     breakpoints: {
-
         991.98: {
             spaceBetween: 73,
         },
@@ -46,21 +45,23 @@ const swiper = new Swiper(".offers__slider", {
     },
 });
 
-// Scroll from btn
-const scrollBtn = document.getElementById("scrollBtn");
+// Прокрутка по клику
+// Для прокрутки добавить к нужному элементу атрибут data-goto, его значение будет назначением прокрутки
 
-scrollBtn.addEventListener('click', onLinkClick);
+document.addEventListener("click", scrollToElem);
 
-function onLinkClick(e) {
-    let link = e.target;
-    if (link.dataset.goto && document.querySelector(link.dataset.goto)) {
-        let gotoBlock = document.querySelector(link.dataset.goto);
-        let gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY;         
+function scrollToElem(e) {
+    const targetElem = e.target;
+    if (targetElem.dataset.goto && document.querySelector(targetElem.dataset.goto)) {
+        const gotoBlock = document.querySelector(targetElem.dataset.goto);
+        const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY;
+
         window.scrollTo({
             top: gotoBlockValue,
-            behavior: 'smooth'
+            behavior: "smooth",
         });
         e.preventDefault();
     }
 }
 
+// Прокрутка по клику
