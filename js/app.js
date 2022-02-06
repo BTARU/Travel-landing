@@ -51,7 +51,7 @@ const swiper = new Swiper(".offers__slider", {
 document.addEventListener("click", scrollToElem);
 
 function scrollToElem(e) {
-    const targetElem = e.target;
+    const targetElem = e.target.closest("a");
     if (targetElem.dataset.goto && document.querySelector(targetElem.dataset.goto)) {
         const gotoBlock = document.querySelector(targetElem.dataset.goto);
         const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY;
