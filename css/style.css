@@ -97,8 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #FFFFFF;
-  background: #C9453B;
+  color: #ffffff;
+  background: #c9453b;
   border-radius: 5px;
   font-size: 16px;
   line-height: 150%;
@@ -181,27 +181,35 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1140px) {
   .offers__slider .swiper-pagination {
-    margin-right: calc(10px + 40 * ((100vw - 320px) / 820));
+    margin-right: calc( 10px + 40 * ((100vw - 320px) / 820));
   }
 }
 
 @media (max-width: 1140px) {
   .offers__slider .swiper-pagination {
-    margin-left: calc(10px + 40 * ((100vw - 320px) / 820));
+    margin-left: calc( 10px + 40 * ((100vw - 320px) / 820));
   }
 }
 
 .offers__slider .swiper-pagination-bullet {
   width: 75px;
   height: 5px;
-  background: #C9453B;
+  background: #c9453b;
   border-radius: 10px;
 }
 
 @media (max-width: 1140px) {
   .offers__slider .swiper-pagination-bullet {
-    width: calc(30px + 45 * ((100vw - 320px) / 820));
+    width: calc( 30px + 45 * ((100vw - 320px) / 820));
   }
+}
+
+#arrowToTop {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 100;
 }
 
 body {

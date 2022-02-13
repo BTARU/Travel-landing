@@ -1,139 +1,178 @@
 // <МИКСИНЫ
-@mixin cnt($h){display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
-@mixin centered(){display: flex;text-align: center;align-items: center;justify-content: center;}
-@mixin centeredInline(){display: inline-flex;text-align: center;align-items: center;justify-content: center;}
-@mixin tr($x,$y,$z){transform: translate3d($x, $y, $z);}
-@mixin flexCenter {display: flex;align-items: center;justify-content: center;}
-@mixin flexCenterVertical {display: flex;align-items: center;justify-content: center;flex-direction: column;}
+@mixin cnt($h) {
+    display: flex;
+    flex-direction: column;
+    height: $h;
+    text-align: center;
+    align-items: stretch;
+    justify-content: center;
+}
+@mixin centered() {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+@mixin centeredInline() {
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+@mixin tr($x, $y, $z) {
+    transform: translate3d($x, $y, $z);
+}
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin flexCenterVertical {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 // >МИКСИНЫ
 
 // АДАПТИВНОЕ СВОЙСТВО
-$maxWidth:1600;
-$maxWidthContainer:1140;
+$maxWidth: 1600;
+$maxWidthContainer: 1140;
 
-@mixin adaptive-value($property,$startSize,$minSize,$type) {
-	$addSize: $startSize - $minSize;
-	@if $type==1 {
-		// Только если меньше контейнера
-		#{$property}: $startSize + px;
-		@media (max-width: #{$maxWidthContainer + px}) {
-			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
-		}		
-	} @else if $type==2 {
-		// Только если больше контейнера
-		#{$property}: $startSize + px;
-		@media (min-width: #{$maxWidthContainer + px}) {
-			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
-		}
-	} @else {
-		// Всегда
-		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
-	}
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+    $addSize: $startSize - $minSize;
+    @if $type==1 {
+        // Только если меньше контейнера
+        #{$property}: $startSize + px;
+        @media (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(
+                #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320})
+            );
+        }
+    } @else if $type==2 {
+        // Только если больше контейнера
+        #{$property}: $startSize + px;
+        @media (min-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(
+                #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+            );
+        }
+    } @else {
+        // Всегда
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+    }
 }
 // >АДАПТИВНОЕ СВОЙСТВО
 
 // АДАПТИВНЫЙ ШРИФТ
 @mixin adaptiv-font($pcSize, $mobSize) {
-	$addSize: $pcSize - $mobSize;
-	$maxWidth: $maxWidth - 320;
-	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
 }
 //> АДАПТИВНЫЙ ШРИФТ
 
 // <Переменные
-$fontfamily:'Roboto', sans-serif;
-$minwidth:320px;
-$md1:$maxWidthContainer+12;
-$md2:991.98;
-$md3:767.98;
-$md4:479.98;
+$fontfamily: "Roboto", sans-serif;
+$minwidth: 320px;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
 // />Переменные
 
 .text {
-	line-height: 160%;
-	opacity: 0.6;
+    line-height: 160%;
+    opacity: 0.6;
 }
 
 .logo {
-	font-family: Ribeye;
-	font-size: 24px;
-	line-height: 150%;
-	letter-spacing: 0.06em;
+    font-family: Ribeye;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0.06em;
 }
 
 .button {
     @include centeredInline();
-	color: #FFFFFF;
-    background: #C9453B;
+    color: #ffffff;
+    background: #c9453b;
     border-radius: 5px;
     font-size: 16px;
     line-height: 150%;
-    @media (min-width:991.98px) {
+    @media (min-width: 991.98px) {
         transition: all 0.3s ease 0s;
         &:hover {
-        background: #96312a;
+            background: #96312a;
         }
     }
 }
 
 .header-block {
-	text-align: center;
-	&__title {
-		font-family: Gelasio;
-		font-weight: 500;
-		@include adaptiv-font(43,34 );
-		line-height: 140%;
-		&:not(:last-child) {
-			margin-bottom: 20px;
-		}
-	}
+    text-align: center;
+    &__title {
+        font-family: Gelasio;
+        font-weight: 500;
+        @include adaptiv-font(43, 34);
+        line-height: 140%;
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
 
-	&__sub-title {
-		@include adaptiv-font(18,17 );
-	}
+    &__sub-title {
+        @include adaptiv-font(18, 17);
+    }
 }
 
 .card-title {
-	font-family: Gelasio;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 150%;
-	color: inherit;
+    font-family: Gelasio;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 150%;
+    color: inherit;
 }
 
 .card-subtitle {
-	font-size: 20px;
-	line-height: 150%;
-	opacity: 0.6;
+    font-size: 20px;
+    line-height: 150%;
+    opacity: 0.6;
 }
 
 .offers__slider_next-btn {
-	background: url(../img/icons/arrows-to-right.svg) center no-repeat;
-	flex: 0 0 30px;
-	height: 30px;
-	cursor: pointer;
+    background: url(../img/icons/arrows-to-right.svg) center no-repeat;
+    flex: 0 0 30px;
+    height: 30px;
+    cursor: pointer;
 }
 
 .offers__slider_prev-btn {
-	background: url(../img/icons/arrows-to-left.svg) center no-repeat;
-	flex: 0 0 30px;
-	height: 30px;
-	cursor: pointer;
+    background: url(../img/icons/arrows-to-left.svg) center no-repeat;
+    flex: 0 0 30px;
+    height: 30px;
+    cursor: pointer;
 }
 
 .offers__slider .swiper-pagination {
-	position: static;
-	width: inherit;
-	@include adaptive-value("margin-right", 50, 10 , 1);
-	@include adaptive-value("margin-left", 50, 10 , 1);
-	display: flex;
-	align-items: center;
+    position: static;
+    width: inherit;
+    @include adaptive-value("margin-right", 50, 10, 1);
+    @include adaptive-value("margin-left", 50, 10, 1);
+    display: flex;
+    align-items: center;
 }
 
 .offers__slider .swiper-pagination-bullet {
-	@include adaptive-value("width",75 ,30 ,1 );
-	height: 5px;
-	background: #C9453B;
-	border-radius: 10px;
+    @include adaptive-value("width", 75, 30, 1);
+    height: 5px;
+    background: #c9453b;
+    border-radius: 10px;
 }
 
+#arrowToTop {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
